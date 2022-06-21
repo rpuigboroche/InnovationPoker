@@ -32,6 +32,23 @@ namespace InnovationPoker.Entities
         internal static bool Flush(this List<Card> cards)
             => false;
 
+        internal static bool IsConsecutive(this List<Value> sortedValues)
+        {
+            if (sortedValues.Count <= 1)
+            {
+                return true;
+            }
+
+            if (sortedValues[0] > sortedValues[1])
+            {
+                return false;
+            }
+
+            sortedValues.RemoveAt(0);
+            return IsConsecutive(sortedValues);
+        }
+
+
         internal static bool Straight(this List<Card> cards)
             => false;
 
