@@ -9,6 +9,6 @@ namespace InnovationPoker.Entities
     internal class Hand
     {
         internal HandType HandType;
-        internal int HandValue;
+        internal Value HandValue;
     }
 }
