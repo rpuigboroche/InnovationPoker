@@ -66,7 +66,24 @@ namespace InnovationPoker
             => play.Cards.FourOfAKind();
 
         private static bool IsFullHouse(Play play)
-            => play.Cards.FourOfAKind();
+            => play.Cards.FullHouse();
 
+        private static bool IsFlush(Play play)
+            => play.Cards.SameSuit();
+
+        private static bool IsStraight(Play play)
+        {
+            var sortedCards = play.Cards.Select(x => x.Value).OrderBy(x => (int)x).ToList();
+            return sortedCards.IsConsecutive();
+        }
+
+        private static bool IsThreeOfAKind(Play play)
+            => play.Cards.ThreeOfAKind();
+
+        private static bool IsTwoPairs(Play play)
+            => play.Cards.TwoPairs();
+
+        private static bool IsOnePair(Play play)
+            => play.Cards.OnePair();
     }
 }
