@@ -54,7 +54,7 @@ namespace InnovationPoker.Entities
                 return true;
             }
 
-            if (sortedValues[0] > sortedValues[1])
+            if ((int)sortedValues[0] != (int)sortedValues[1] + 1)
             {
                 return false;
             }

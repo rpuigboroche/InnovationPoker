@@ -8,7 +8,7 @@ namespace InnovationPoker.Entities
 {
     internal class Card
     {
-        internal Suit Suit;
-        internal Value Value;
+        internal Suit Suit { get; }
+        internal Value Value { get; }
     }
 }

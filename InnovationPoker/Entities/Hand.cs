@@ -8,7 +8,13 @@ namespace InnovationPoker.Entities
 {
     internal class Hand
     {
-        internal HandType HandType;
-        internal Value HandValue;
+        public Hand(HandType handType, Value handValue)
+        {
+            this.HandType = handType;
+            this.HandValue = handValue;
+        }
+
+        internal HandType HandType { get; }
+        internal Value HandValue { get; }
     }
 }

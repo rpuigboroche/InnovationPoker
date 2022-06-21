@@ -23,39 +23,39 @@ namespace InnovationPoker
         {
             if (IsRoyalFlush(play))
             {
-                return new Hand { HandType = HandType.RoyalFlush };
+                return new Hand(HandType.RoyalFlush, Value.A);
             }
             if (IsStraightFlush(play))
             {
-                return new Hand { HandType = HandType.StraightFlush, HandValue = };
+                return new Hand(HandType.StraightFlush, Value.A);
             }
             if (IsFourOfAKind(play))
             {
-                return new Hand { HandType = HandType.FourOfAKind, HandValue = };
+                return new Hand(HandType.FourOfAKind, Value.A);
             }
             if (IsFullHouse(play))
             {
-                return new Hand { HandType = HandType.FullHouse, HandValue = };
+                return new Hand(HandType.FullHouse, Value.A);
             }
             if (IsFlush(play))
             {
-                return new Hand { HandType = HandType.Flush, HandValue = };
+                return new Hand(HandType.Flush, Value.A );
             }
             if (IsStraight(play))
             {
-                return new Hand { HandType = HandType.Straight, HandValue = };
+                return new Hand(HandType.Straight, Value.A);
             }
             if (IsThreeOfAKind(play))
             {
-                return new Hand { HandType = HandType.ThreeOfAKind, HandValue = };
+                return new Hand(HandType.ThreeOfAKind, Value.A);
             }
             if (IsTwoPairs(play))
             {
-                return new Hand { HandType = HandType.TwoPairs, HandValue = };
+                return new Hand(HandType.TwoPairs, Value.A);
             }
             if (IsOnePair(play))
             {
-                return new Hand { HandType = HandType.OnePair, HandValue = };
+                return new Hand(HandType.OnePair, Value.A);
             }
 
         }
