@@ -32,6 +32,21 @@ namespace InnovationPoker.Entities
         internal static bool Flush(this List<Card> cards)
             => false;
 
+        internal static bool Straight(this List<Card> cards)
+            => false;
+
+        internal static bool ThreeOfAKind(this List<Card> cards)
+            => cards.GroupBy(x => x.Value).Any(o => o.Count() == 3);
+
+        internal static bool TwoPairs(this List<Card> cards)
+            => cards.GroupBy(x => x.Value).Count(o => o.Count() == 2) == 2;
+
+        internal static bool OnePair(this List<Card> cards)
+            => cards.GroupBy(x => x.Value).Count(o => o.Count() == 2) == 1;
+
+        internal static bool HighCard(this List<Card> cards)
+            => false;
+
         internal static bool IsConsecutive(this List<Value> sortedValues)
         {
             if (sortedValues.Count <= 1)
@@ -48,22 +63,5 @@ namespace InnovationPoker.Entities
             return IsConsecutive(sortedValues);
         }
 
-
-        internal static bool Straight(this List<Card> cards)
-            => false;
-
-        internal static bool ThreeOfAKind(this List<Card> cards)
-            => cards.GroupBy(x => x.Value).Any(o => o.Count() == 3);
-
-        internal static bool TwoPairs(this List<Card> cards)
-            => cards.GroupBy(x => x.Value).Count(o => o.Count() == 2) == 2;
-
-        internal static bool OnePair(this List<Card> cards)
-            => cards.GroupBy(x => x.Value).Count(o => o.Count() == 2) == 1;
-
-        internal static bool HighCard(this List<Card> cards)
-            => false;
     }
-
-}
 }
