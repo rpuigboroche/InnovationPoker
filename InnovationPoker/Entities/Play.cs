@@ -24,10 +24,26 @@ namespace InnovationPoker.Entities
             => cards.GroupBy(x => x.Value).Count() >= 4;
 
         internal static bool FullHouse(this List<Card> cards)
-        {
-            cards.GroupBy(x => x.Value).Count() >= 4;
+             => cards.GroupBy(x => x.Value).Count() >= 4;
 
-        }
-            
+        internal static bool Flush(this List<Card> cards)
+            => false;
+
+        internal static bool Straight(this List<Card> cards)
+            => false;
+
+        internal static bool ThreeOfAKind(this List<Card> cards)
+            => false;
+
+        internal static bool TwoPairs(this List<Card> cards)
+            => false;
+
+        internal static bool OnePair(this List<Card> cards)
+            => false;
+
+        internal static bool HighCard(this List<Card> cards)
+            => false;
     }
+
+}
 }
