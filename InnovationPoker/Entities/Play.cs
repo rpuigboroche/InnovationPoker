@@ -21,10 +21,13 @@ namespace InnovationPoker.Entities
             => cards.Exists(x => x.Value == value);
 
         internal static bool FourOfAKind(this List<Card> cards)
-            => cards.GroupBy(x => x.Value).Count() >= 4;
+            => cards.GroupBy(x => x.Value).Any(o => o.Count() == 4);
 
         internal static bool FullHouse(this List<Card> cards)
-             => cards.GroupBy(x => x.Value).Count() >= 4;
+        {
+            var groups = cards.GroupBy(x => x.Value);
+            return groups.Any(o => o.Count() == 3) & groups.Any(o => o.Count() == 2);
+        }
 
         internal static bool Flush(this List<Card> cards)
             => false;
@@ -33,13 +36,13 @@ namespace InnovationPoker.Entities
             => false;
 
         internal static bool ThreeOfAKind(this List<Card> cards)
-            => false;
+            => cards.GroupBy(x => x.Value).Any(o => o.Count() == 3);
 
         internal static bool TwoPairs(this List<Card> cards)
-            => false;
+            => cards.GroupBy(x => x.Value).Count(o => o.Count() == 2) == 2;
 
         internal static bool OnePair(this List<Card> cards)
-            => false;
+            => cards.GroupBy(x => x.Value).Count(o => o.Count() == 2) == 1;
 
         internal static bool HighCard(this List<Card> cards)
             => false;
