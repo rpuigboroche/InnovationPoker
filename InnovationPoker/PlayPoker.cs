@@ -33,6 +33,30 @@ namespace InnovationPoker
             {
                 return new Hand { HandType = HandType.FourOfAKind, HandValue = };
             }
+            if (IsFullHouse(play))
+            {
+                return new Hand { HandType = HandType.FullHouse, HandValue = };
+            }
+            if (IsFlush(play))
+            {
+                return new Hand { HandType = HandType.Flush, HandValue = };
+            }
+            if (IsStraight(play))
+            {
+                return new Hand { HandType = HandType.Straight, HandValue = };
+            }
+            if (IsThreeOfAKind(play))
+            {
+                return new Hand { HandType = HandType.ThreeOfAKind, HandValue = };
+            }
+            if (IsTwoPairs(play))
+            {
+                return new Hand { HandType = HandType.TwoPairs, HandValue = };
+            }
+            if (IsOnePair(play))
+            {
+                return new Hand { HandType = HandType.OnePair, HandValue = };
+            }
 
         }
 
@@ -46,7 +70,7 @@ namespace InnovationPoker
         //TwoPairs, //Two different pairs.
         //OnePair, //Two cards of the same value.
         //HighCard, //Highest value card.
-        
+
         private static bool IsRoyalFlush(Play play) 
             => play.Cards.SameSuit()
                && play.Cards.ContainsValue(Value.A)
