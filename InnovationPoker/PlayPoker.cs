@@ -58,8 +58,8 @@ namespace InnovationPoker
 
         private static bool IsStraightFlush(Play play)
         {
-            var sortedCards = play.Cards.Select(x => x.Value).OrderByDescending(x => (int)x);
-            return play.Cards.SameSuit() && !sortedCards.Select((i, j) => i - j).Distinct().Skip(1).Any();
+            var sortedCards = play.Cards.Select(x => x.Value).OrderBy(x => (int)x).ToList();
+            return play.Cards.SameSuit() && sortedCards.IsConsecutive();
         }
 
         private static bool IsFourOfAKind(Play play)
